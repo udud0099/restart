@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+
+    <!-- https://www.w3schools.com/howto/howto_js_tabs.asp -->
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        color: white;
+      }
+      .active {
+        background-color: rgb(56, 56, 56);
+      }
+      h1 {
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="" style="display: flex; gap: 10px">
+        <h1 class="btn active" style="padding: 8px 16px; cursor: pointer">
+          one
+        </h1>
+        <h1 class="btn" style="padding: 8px 16px; cursor: pointer">two</h1>
+        <h1 class="btn" style="padding: 8px 16px; cursor: pointer">three</h1>
+        <h1 class="btn" style="padding: 8px 16px; cursor: pointer">4 three</h1>
+        <h1 class="btn" style="padding: 8px 16px; cursor: pointer">5 three</h1>
+        <h1 class="btn" style="padding: 8px 16px; cursor: pointer">6 three</h1>
+      </div>
+      <div>
+        <p>
+          1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis
+          beatae ducimus esse minima cupiditate magnam sed sunt delectus in
+          officia eveniet rerum, qui, dicta officiis maiores nulla voluptatem
+          fugiat repudiandae! <span>x1</span>
+        </p>
+        <p>
+          2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis
+          beatae ducimus esse minima cupiditate magnam sed sunt delectus in
+          officia eveniet rerum, qui, dicta officiis maiores nulla voluptatem
+          fugiat repudiandae! <span>x2</span>
+        </p>
+        <p>
+          3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis
+          beatae ducimus esse minima cupiditate magnam sed sunt delectus in
+          officia eveniet rerum, qui, dicta officiis maiores nulla voluptatem
+          fugiat repudiandae! <span>x3</span>
+        </p>
+        <p>
+          4 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis
+          beatae ducimus esse minima cupiditate magnam sed sunt delectus in
+          officia eveniet rerum, qui, dicta officiis maiores nulla voluptatem
+          fugiat repudiandae! <span>x3</span>
+        </p>
+        <p>
+          5 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis
+          beatae ducimus esse minima cupiditate magnam sed sunt delectus in
+          officia eveniet rerum, qui, dicta officiis maiores nulla voluptatem
+          fugiat repudiandae! <span>x3</span>
+        </p>
+        <p>
+          6 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis
+          beatae ducimus esse minima cupiditate magnam sed sunt delectus in
+          officia eveniet rerum, qui, dicta officiis maiores nulla voluptatem
+          fugiat repudiandae! <span>x3</span>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document.getElementsByTagName("h1")[0].click();
+      let h1 = document.getElementsByTagName("h1");
+      let p = document.getElementsByTagName("p");
+
+      for (let i = 0; i < h1.length; i++) {
+        h1[i].addEventListener("click", function () {
+          let current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+
+          //   console.log(i);
+
+          for (let j = 0; j < h1.length; j++) {
+            if (i == j) {
+              p[j].style.display = "block";
+            } else {
+              p[j].style.display = "none";
+            }
+          }
+        });
+      }
+
+      for (let i = 0; i < p.length; i++) {
+        if (i == 0) {
+          p[i].style.display = "block";
+        } else {
+          p[i].style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
