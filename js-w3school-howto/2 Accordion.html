@@ -1,21 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accordion</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <!-- https://www.w3schools.com/howto/howto_js_accordion.asp -->
     <style>
-        body {
+      body {
         margin: 0;
         padding: 0;
         background-color: black;
         color: white;
       }
+      .mainb {
+        /* background-color: greenyellow; */
+        margin-bottom: 20px;
+      }
+      .sec {
+        transition: 1s;
+        cursor: pointer;
+        padding: 10px 20px;
+      }
+      .active {
+        background-color: rgb(26, 26, 26);
+      }
+      .active .plus,
+      .sec .subb {
+        transition: 1s;
+        display: none;
+      }
+      .active .subb {
+        transition: 1s;
+        display: inline-block;
+      }
+      .conn {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        transition: height 2s ease-out;
+      }
+      .conn p {
+        padding: 30px 20px;
+      }
+      .connact {
+        opacity: 1;
+        height: auto;
+        overflow: hidden;
+        transition: height 2s ease-out;
+      }
     </style>
-</head>
-<body>
-    
-    
-</body>
+  </head>
+  <body>
+    <div class="w-3/4 mx-auto">
+      <div class="mainb">
+        <div class="sec active flex justify-between items-center">
+          <h1 class="text-3xl">Section 1</h1>
+          <p class="text-4xl">
+            <span class="plus">+</span> <span class="subb">-</span>
+          </p>
+        </div>
+        <div class="conn connact">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa
+            sequi laboriosam, neque aliquam aut quasi rerum id harum minima
+            tempora obcaecati delectus iusto. Amet dolore dignissimos, animi
+            quia officiis eveniet?
+          </p>
+        </div>
+      </div>
+
+      <div class="mainb">
+        <div class="sec active flex justify-between items-center">
+          <h1 class="text-3xl">Section 2</h1>
+          <p class="text-4xl">
+            <span class="plus">+</span> <span class="subb">-</span>
+          </p>
+        </div>
+        <div class="conn connact">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa
+            sequi laboriosam, neque aliquam aut quasi rerum id harum minima
+            tempora obcaecati delectus iusto. Amet dolore dignissimos, animi
+            quia officiis eveniet?
+          </p>
+        </div>
+      </div>
+
+      <div class="mainb">
+        <div class="sec active flex justify-between items-center">
+          <h1 class="text-3xl">Section 3</h1>
+          <p class="text-4xl">
+            <span class="plus">+</span> <span class="subb">-</span>
+          </p>
+        </div>
+        <div class="conn connact">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa
+            sequi laboriosam, neque aliquam aut quasi rerum id harum minima
+            tempora obcaecati delectus iusto. Amet dolore dignissimos, animi
+            quia officiis eveniet?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let sec = document.getElementsByClassName("sec");
+
+      for (let i = 0; i < sec.length; i++) {
+        sec[i].addEventListener("click", () => {
+          sec[i].classList.toggle("active");
+          sec[i].nextElementSibling.classList.toggle("connact");
+        });
+      }
+    </script>
+  </body>
 </html>
