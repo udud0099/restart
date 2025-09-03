@@ -4,11 +4,14 @@ export default async function Lectures({
   params: Promise<{ slug: string[] }>;
 }) {
   const { slug } = await params;
+
   return (
+    // Catch all segment
     <>
       <div>
-        <h2>lectures </h2>
-        {slug.map((item, index) => (
+        <h2> default not route lectures </h2>
+        <br />
+        {slug?.map((item, index) => (
           <div key={index}>{item}</div>
         ))}
       </div>
