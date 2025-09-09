@@ -11,14 +11,23 @@ export const GET = async () => {
   //   return NextResponse.json({ result: "ok" });
 };
 
-export const POST = async () => {
+// export const POST = async () => {
+//   await mongoose.connect(connectionString);
+//   const empData = new Employee({
+//     name: "sabita",
+//     salary: "1k",
+//     dep: "manager",
+//   });
+
+//   const response = await empData.save();
+//   return NextResponse.json({ result: response });
+// };
+
+export const POST = async (req) => {
+  const payload = await req.json();
   await mongoose.connect(connectionString);
-  const empData = new Employee({
-    name: "sabita",
-    salary: "1k",
-    dep: "manager",
-  });
+  const empData = new Employee(payload);
 
   const response = await empData.save();
-  return NextResponse.json({ result: response });
+  return NextResponse.json({ result: response, success: true });
 };
