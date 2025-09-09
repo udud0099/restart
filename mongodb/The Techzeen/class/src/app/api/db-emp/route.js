@@ -10,3 +10,15 @@ export const GET = async () => {
   return NextResponse.json({ result: empData });
   //   return NextResponse.json({ result: "ok" });
 };
+
+export const POST = async () => {
+  await mongoose.connect(connectionString);
+  const empData = new Employee({
+    name: "sabita",
+    salary: "1k",
+    dep: "manager",
+  });
+
+  const response = await empData.save();
+  return NextResponse.json({ result: response });
+};
