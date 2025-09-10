@@ -6,7 +6,6 @@ const getData = async () => {
     cache: "no-store",
   });
   data = await data.json();
-  
   return data.result;
 };
 const getUsres = async () => {
