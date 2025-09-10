@@ -14,16 +14,5 @@ export const PUT = async (req, value) => {
 
   const result = await Employee.findOneAndUpdate(id, payload);
 
-  return NextResponse.json({ result, success: true });
-};
-export const GET = async (req, value) => {
-  const empID = value.params.empid;
-  const id = { _id: empID };
-   
-
-  await mongoose.connect(connectionString);
-
-  const result = await Employee.findById(id);
-
-  return NextResponse.json({ result, success: true });
+  return NextResponse.json({ result });
 };

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 
 const getData = async () => {
@@ -20,12 +19,6 @@ const getUsres = async () => {
         <div key={index}>
           <h1>{item._id}</h1>
           <h1>{item.name}</h1>
-          <br />
-          <Link href={`alluser/${item._id}`}>e</Link>
-          <br />
-          <button>d</button>
-
-          <br /> <br />
         </div>
       ))}
     </div>
